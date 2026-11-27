@@ -1,0 +1,26 @@
+/* Team Sri Lanka - additions on top of the course kit's style.css */
+
+/* "To add" boxes: every yellow dashed box is work that is still open */
+.todo{position:relative;background:#16130a;border:2px dashed #6b5a17;border-radius:16px;padding:1.6rem 1.3rem 1.2rem;margin-top:1rem}
+.twocol>.todo{margin-top:0}
+.todo .tag{position:absolute;top:-.7rem;left:1rem;background:var(--warn);color:#141003;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem}
+.todo b{display:block;color:var(--warn);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
+.todo p{color:#e8d9ac;font-size:.93rem}
+.todo .eg{display:block;margin-top:.5rem;color:var(--muted);font-size:.82rem;font-style:italic}
+
+/* landing cards */
+a.card{display:block;text-decoration:none;color:inherit;position:relative;transition:border-color .2s,transform .2s}
+a.card:hover{border-color:var(--a1);transform:translateY(-3px)}
+.status{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem;margin-bottom:.7rem}
+.status.open{background:var(--warn);color:#141003}
+.status.draft{background:#2a3b6b;color:#c9d6ff}
+.status.done{background:var(--good);color:#04130c}
+
+/* links inside dark panels */
+main a{color:#8fa4ff}
+a.card,a.card:visited{color:inherit}
+.stepRow a,.notice a,.tstep a,.back a{color:#aebfff}
+
+/* long words must not push a phone screen sideways */
+h1,h2,.big{overflow-wrap:anywhere}
+@media (prefers-reduced-motion:reduce){a.card{transition:none}}
