@@ -3,26 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sri Lanka GTM Pitch · Team Sri Lanka</title>
+<title>Acclym × Sri Lanka · Team Sri Lanka</title>
 <link rel="stylesheet" href="../assets/style.css">
 <link rel="stylesheet" href="../assets/team.css">
 <style>
-:root{--a1:#feb700;--a2:#8d153a;--a3:#ff7a59}
-.pitch-header{padding-top:14vh}
-.video-slot{aspect-ratio:16/9;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,#171f36,#0c111e);border:2px dashed #475273;border-radius:20px;padding:2rem}
-.video-slot .play{font-size:3rem;color:var(--a1)}
-.video-slot p{max-width:50ch;color:var(--muted)}
-.pitch-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1rem}
-.placeholder{background:var(--panel);border:1px dashed #59627f;border-radius:16px;padding:1.3rem;color:var(--muted)}
-.placeholder b{display:block;color:var(--a1);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem}
-.minute{display:inline-block;color:var(--a1);font-weight:700;font-size:.75rem;letter-spacing:.1em;margin-bottom:.4rem}
-.big-question{font-size:clamp(1.5rem,3vw,2.5rem);font-weight:750;line-height:1.2;margin:1rem 0}
-.team-role{display:flex;gap:.8rem;align-items:center;background:var(--panel);padding:1rem;border-radius:12px}
-.team-role .avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:#28314c;color:var(--a1);font-weight:800}
-.pitch-nav{position:fixed;right:1rem;bottom:1rem;z-index:40;background:rgba(18,23,40,.9);border:1px solid #2a3350;border-radius:999px;padding:.5rem .8rem;font-size:.75rem}
-.pitch-nav a{color:var(--muted);text-decoration:none;margin:0 .25rem}
-.pitch-nav a:hover{color:var(--a1)}
-@media(max-width:640px){.pitch-nav{left:.5rem;right:.5rem;display:flex;justify-content:center}.pitch-nav a{margin:0}}
+:root{--a1:#feb700;--a2:#8d153a;--a3:#ff7a59;--leaf:#2fb38a}
+@media (min-width:900px) and (min-height:640px){html{scroll-snap-type:y proximity}}
+.slide{min-height:100vh;display:flex;flex-direction:column;justify-content:center;scroll-snap-align:start;padding:5.5rem 0 4rem;margin-top:0}
+.slide>.inner{max-width:1100px}
+.when{display:inline-block;color:var(--a1);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.6rem}
+.thesis{font-size:clamp(1.9rem,4.4vw,3.4rem);font-weight:800;line-height:1.08;margin-bottom:1rem}
+.thesis em{font-style:normal;color:var(--a1)}
+.title-slide h1{font-size:clamp(2.6rem,7vw,5.2rem)}
+.title-slide h1 .x{color:var(--a1)}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1rem;margin-top:1.4rem}
+.stat{background:var(--panel);border:1px solid #232c49;border-radius:16px;padding:1.3rem}
+.stat .v{font-size:clamp(1.7rem,3vw,2.3rem);font-weight:800;color:var(--a1);line-height:1.1}
+.stat .v.leaf{color:var(--leaf)}
+.stat .l{color:var(--muted);font-size:.88rem;margin-top:.35rem}
+.matrix{width:100%;border-collapse:collapse;margin-top:1.2rem;font-size:.9rem;background:var(--panel);border-radius:16px;overflow:hidden}
+.matrix th,.matrix td{padding:.7rem .8rem;text-align:left;border-bottom:1px solid #1d2542}
+.matrix th{color:var(--muted);font-weight:600;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;background:#0f1424}
+.matrix td.n{text-align:center;color:var(--muted)}
+.matrix tr.win td{background:rgba(254,183,0,.08);color:var(--ink)}
+.matrix tr.win td:first-child{border-left:4px solid var(--a1)}
+.matrix .tot{font-weight:800;color:var(--a1);text-align:center}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.notes{margin-top:1.4rem;border-top:1px dashed #2a3350;padding-top:.8rem}
+.notes summary{cursor:pointer;color:var(--muted);font-size:.82rem;letter-spacing:.06em}
+.notes p{color:#c9d1ea;font-size:.95rem;margin-top:.6rem;max-width:75ch}
+.pill{display:inline-block;background:#1b2340;border:1px solid #2a3350;border-radius:999px;padding:.2rem .7rem;font-size:.75rem;color:var(--muted);margin:.2rem .2rem 0 0}
+.label{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#141003;background:var(--warn);border-radius:999px;padding:.12rem .6rem;margin-bottom:.6rem}
+.deck-bar{position:fixed;right:1rem;bottom:1rem;z-index:60;display:flex;align-items:center;gap:.5rem;background:rgba(18,23,40,.92);border:1px solid #2a3350;border-radius:999px;padding:.35rem .5rem;font-size:.8rem;color:var(--muted)}
+.deck-bar button{background:none;border:1px solid #2a3350;color:var(--ink);border-radius:999px;width:2rem;height:2rem;cursor:pointer;font:inherit}
+.deck-bar button:hover{border-color:var(--a1);color:var(--a1)}
+.deck-bar .count{min-width:3.4rem;text-align:center;font-variant-numeric:tabular-nums}
+.deck-bar .clock{border-left:1px solid #2a3350;padding-left:.6rem;font-variant-numeric:tabular-nums}
+.hint-keys{color:var(--muted);font-size:.8rem;margin-top:1.6rem}
+.hint-keys kbd{border:1px solid #2a3350;border-radius:6px;padding:.05rem .4rem;font-family:inherit;font-size:.75rem}
+@media(max-width:640px){.slide{min-height:auto;padding:4rem 0 2rem}.deck-bar{left:.5rem;right:.5rem;justify-content:center}.matrix{font-size:.8rem}}
 </style>
 </head>
 <body>
@@ -31,96 +50,212 @@
 <div class="blob" style="width:32vw;height:32vw;background:#feb700;bottom:-10vw;left:-10vw;opacity:.16;animation:drift 36s ease-in-out infinite alternate-reverse"></div>
 <nav>
   <a href="../index.html">&larr; Team home</a>
-  <span class="here">3–5 minute pitch</span>
-  <span class="links"><a href="../company/">Company research</a><a href="../culture/">Culture notes</a></span>
+  <span class="here">The 4-minute pitch</span>
+  <span class="links"><a href="../company/">Company</a><a href="../culture/">Culture</a><a href="../client/">Client &amp; roadmap</a></span>
 </nav>
-<header class="pitch-header">
-  <div class="kicker">GMBA · Culture and Business · Sri Lanka</div>
-  <h1>Israel × Sri Lanka</h1>
-  <p class="lede">A business opportunity, a market-entry idea, and the cultural intelligence to build the relationship. <em>Company selection pending.</em></p>
-  <div class="hero-chips"><span class="chip">3–5 minute presentation</span><span class="chip">Assignment 1 · Part 2</span><span class="chip">Template — not final content</span></div>
-</header>
+
 <main>
-<section class="reveal" id="video">
-  <h2><span class="n">00</span>Our presentation</h2>
-  <p class="sub">Place your recorded 3–5 minute explainer here. Replace the placeholder with an embedded video (YouTube, Vimeo, or the university-approved platform).</p>
-  <div class="video-slot">
-    <div><div class="play">▶</div><h3>VIDEO PLACEHOLDER</h3><p>Embed link goes here. Suggested format: a team voice-over with visuals and short on-screen headlines. Aim for 3:30–4:30.</p></div>
-  </div>
-  <div class="notice"><b>Suggested narration flow:</b> Company &amp; product → why Sri Lanka → business-culture insights → how we would approach a first business relationship.</div>
-</section>
 
-<section class="reveal" id="company">
-  <span class="minute">0:00–0:50 · 50 seconds</span>
-  <h2><span class="n">01</span>The Israeli company &amp; solution</h2>
-  <p class="sub">Introduce one company and one product/service. Keep the explanation accessible to a non-expert.</p>
-  <div class="pitch-grid">
-    <div class="placeholder"><b>Company</b><strong>[Company name]</strong><p>What it does · where it is based · relevant experience</p></div>
-    <div class="placeholder"><b>Product / service</b><strong>[Solution name]</strong><p>The problem it solves and how it works—in one simple sentence.</p></div>
-    <div class="placeholder"><b>Evidence</b><strong>[Proof point]</strong><p>Customers, results, deployments or other credible evidence. Cite sources.</p></div>
+<!-- 1 · TITLE -->
+<section class="slide title-slide" id="s1">
+  <div class="inner">
+    <div class="kicker">Team Sri Lanka &middot; Culture and Business &middot; Assignment 1</div>
+    <h1>Acclym <span class="x">&times;</span> Ceylon tea</h1>
+    <p class="lede">An Israeli crop-data company and a Sri Lankan plantation group: what we would sell, to whom, and how we would earn the first meeting.</p>
+    <div class="hero-chips"><span class="chip">About 4 minutes</span><span class="chip">8 slides</span><span class="chip">Ask, check, adapt</span></div>
+    <p class="hint-keys">Use <kbd>&larr;</kbd> <kbd>&rarr;</kbd> or the buttons at the bottom right to move between slides.</p>
+    <details class="notes"><summary>Speaker notes &middot; 0:00–0:20</summary><p>Ayubowan. We are Team Sri Lanka. In four minutes: why we picked Acclym, why Sri Lanka needs it now, who our first client is, and the cultural moves that get us into the room.</p></details>
   </div>
 </section>
 
-<section class="reveal" id="market">
-  <span class="minute">0:50–1:40 · 50 seconds</span>
-  <h2><span class="n">02</span>Why Sri Lanka?</h2>
-  <p class="sub">Connect the company's offering to a real local need and a plausible business opportunity.</p>
-  <div class="pitch-grid">
-    <div class="placeholder"><b>Market need</b><p>[Specific Sri Lankan challenge, customer, or sector]</p></div>
-    <div class="placeholder"><b>Why now?</b><p>[Market trend, recovery, investment, digital shift, or other relevant driver]</p></div>
-    <div class="placeholder"><b>Opportunity</b><p>[Value for the Sri Lankan customer + realistic route to market]</p></div>
-  </div>
-  <p class="big-question">“What problem are we solving—and for whom?”</p>
-</section>
-
-<section class="reveal" id="culture">
-  <span class="minute">1:40–2:50 · 70 seconds</span>
-  <h2><span class="n">03</span>Culture is part of the strategy</h2>
-  <p class="sub">Use 3–4 practical tips, grounded in class, diplomat/mentor insights, and sources. Phrase them as tendencies to check—not rules about everyone.</p>
-  <div class="pitch-grid">
-    <div class="placeholder"><b>Relationship first</b><p>[Tip: build trust and allow time for introductions and small talk.]</p></div>
-    <div class="placeholder"><b>Respect &amp; hierarchy</b><p>[Tip: titles, seniority, introductions, and appropriate formality.]</p></div>
-    <div class="placeholder"><b>Communication</b><p>[Tip: listen carefully, clarify indirect signals, avoid assumptions.]</p></div>
-    <div class="placeholder"><b>Meeting etiquette</b><p>[Tip: punctuality, conservative dress, cards, follow-up, and local customs.]</p></div>
+<!-- 2 · WHY SRI LANKA -->
+<section class="slide reveal" id="s2">
+  <div class="inner">
+    <span class="when">0:20 · Why Sri Lanka</span>
+    <p class="thesis">Tea pays the bills. <em>Weather</em> is now the risk.</p>
+    <p class="sub">The case rests on four numbers from class.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">US$1.51bn</div><div class="l">Tea exports in 2025. Sri Lanka's second-largest merchandise export after garments.<sup class="src">[1]</sup></div></div>
+      <div class="stat"><div class="v">US$4.1bn</div><div class="l">Damage from Cyclone Ditwah (Nov 2025), about 4% of GDP, by the World Bank estimate.<sup class="src">[2]</sup></div></div>
+      <div class="stat"><div class="v">~US$5,000</div><div class="l">GDP per person. Consumer spending is modest, so B2B is a stronger bet than B2C.<sup class="src">[1][2]</sup></div></div>
+      <div class="stat"><div class="v leaf">ICT &gt; tea</div><div class="l">ICT exports passed tea in early 2026, and the country has a National AI Policy. Data tools are welcome.<sup class="src">[2]</sup></div></div>
+    </div>
+    <details class="notes"><summary>Speaker notes &middot; 0:20–0:50</summary><p>Tea earned one and a half billion dollars last year. It is the export the world knows as "Ceylon". Then Cyclone Ditwah did damage worth about four percent of GDP. Planters now need to see each estate's risk before the buyer asks. And the country wants digital, data-driven tools. That is our opening.</p></details>
   </div>
 </section>
 
-<section class="reveal" id="approach">
-  <span class="minute">2:50–3:40 · 50 seconds</span>
-  <h2><span class="n">04</span>How we would enter the market</h2>
-  <p class="sub">A short, realistic first-step plan. Avoid promising a deal before understanding the customer.</p>
-  <div class="timeline">
-    <div class="tstep"><h4>Step 1 <span>Listen &amp; learn</span></h4><p>[Identify the customer challenge; ask for a trusted introduction.]</p></div>
-    <div class="tstep"><h4>Step 2 <span>Build the relationship</span></h4><p>[Meet, understand stakeholders, and validate fit.]</p></div>
-    <div class="tstep"><h4>Step 3 <span>Propose a pilot</span></h4><p>[Define scope, success measures, local partner, and next step.]</p></div>
+<!-- 3 · HOW WE CHOSE -->
+<section class="slide reveal" id="s3">
+  <div class="inner">
+    <span class="when">0:50 · How we chose</span>
+    <p class="thesis">Five Israeli candidates. <em>One</em> clear fit.</p>
+    <p class="sub">We scored the five companies from the course brief on four tests, 1 to 5. The scores are our team's judgment.</p>
+    <div class="tablewrap">
+    <table class="matrix">
+      <thead><tr><th>Company</th><th>Local need today</th><th>One named B2B client</th><th>Client earns USD</th><th>Proof abroad</th><th>Total</th></tr></thead>
+      <tbody>
+        <tr class="win"><td><b>Acclym</b> (ex-Agritask) &middot; crop data</td><td class="n">5</td><td class="n">5</td><td class="n">5</td><td class="n">4</td><td class="tot">19</td></tr>
+        <tr><td>Netafim / Phytech &middot; irrigation</td><td class="n">4</td><td class="n">3</td><td class="n">3</td><td class="n">5</td><td class="tot">15</td></tr>
+        <tr><td>ThetaRay &middot; anti-money-laundering AI</td><td class="n">4</td><td class="n">4</td><td class="n">3</td><td class="n">4</td><td class="tot">15</td></tr>
+        <tr><td>BioCatch &middot; fraud biometrics</td><td class="n">3</td><td class="n">4</td><td class="n">3</td><td class="n">5</td><td class="tot">15</td></tr>
+        <tr><td>Optibus &middot; transit planning</td><td class="n">3</td><td class="n">2</td><td class="n">2</td><td class="n">4</td><td class="tot">11</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="notice"><b>Why "client earns USD" matters:</b> Sri Lanka is still rated "junk" and payments in dollars need care.<sup class="src">[2]</sup> A tea exporter earns dollars, so it can pay a software subscription in dollars.</div>
+    <details class="notes"><summary>Speaker notes &middot; 0:50–1:20</summary><p>We scored all five options from the brief. Acclym wins on every business test: the need exists today, there is one clear client, that client earns dollars, and Acclym already serves global food brands. Netafim is strong too, but it sells hardware into a market short of capital. Optibus would mean selling to government, which is a slow cycle.</p></details>
   </div>
 </section>
 
-<section class="reveal" id="team">
-  <span class="minute">3:40–4:10 · 30 seconds</span>
-  <h2><span class="n">05</span>The team</h2>
-  <p class="sub">Show names, photos (with permission), and simulated company roles. Team members may each say one short line.</p>
-  <div class="pitch-grid">
-    <div class="team-role"><div class="avatar">A</div><div><b>[Name]</b><p>[Role: CEO / market lead]</p></div></div>
-    <div class="team-role"><div class="avatar">B</div><div><b>[Name]</b><p>[Role: product / technology]</p></div></div>
-    <div class="team-role"><div class="avatar">C</div><div><b>[Name]</b><p>[Role: partnerships / culture]</p></div></div>
+<!-- 4 · THE COMPANY -->
+<section class="slide reveal" id="s4">
+  <div class="inner">
+    <span class="when">1:20 · The company</span>
+    <p class="thesis">Acclym turns every field into <em>data a buyer trusts.</em></p>
+    <div class="twocol">
+      <div class="fact"><h4>Who they are</h4><ul>
+        <li>Israeli "crop supply intelligence" company, formerly <b>Agritask</b>.<sup class="src">[3]</sup></li>
+        <li>Acquired by Israel's <b>CropX Technologies</b> in September 2025.<sup class="src">[4]</sup></li>
+        <li>Over <b>6M hectares</b> in <b>39 countries</b>.<sup class="src">[3]</sup></li>
+        <li>Customers include <b>Nestlé, AB InBev, General Mills</b>.<sup class="src">[3]</sup></li>
+        <li><b>US$42M</b> raised in venture funding.<sup class="src">[4]</sup></li>
+      </ul></div>
+      <div class="fact"><h4>What a tea estate gets</h4><ul>
+        <li>One map of every estate, field by field: crop status, weather and risk.</li>
+        <li>Earlier warning of yield loss after floods or drought.</li>
+        <li>Traceability and sustainability records that export buyers ask for.</li>
+        <li>Managers and field officers share one view, so head office sees what the estate sees.</li>
+      </ul><p style="margin-top:.6rem;font-size:.8rem">The use case for tea is our proposal. Acclym's site does not list tea customers.</p></div>
+    </div>
+    <details class="notes"><summary>Speaker notes &middot; 1:20–1:50</summary><p>Acclym, formerly Agritask, is an Israeli platform that tells big food companies what is happening on the farms that supply them. Nestlé and AB InBev use it. Since 2025 it is part of CropX, so it now has soil sensors as well. For a tea estate, that means one map, early warning, and the traceability data buyers ask for.</p></details>
   </div>
 </section>
 
-<section class="reveal" id="closing">
-  <h2><span class="n">06</span>Closing thought</h2>
-  <p class="big-question">“Successful market entry starts with solving a real need—and earning trust.”</p>
-  <p class="sub">Replace this with the team's own conclusion and a memorable final line.</p>
+<!-- 5 · THE CLIENT -->
+<section class="slide reveal" id="s5">
+  <div class="inner">
+    <span class="when">1:50 · The first client</span>
+    <p class="thesis">Start with one group that already thinks in <em>estates</em>.</p>
+    <div class="stats">
+      <div class="stat"><div class="v">3</div><div class="l">Plantation companies under <b>Hayleys Plantations</b>: Kelani Valley, Talawakelle Tea Estates, Horana.<sup class="src">[5]</sup></div></div>
+      <div class="stat"><div class="v">5.4%</div><div class="l">Of Sri Lanka's tea, and 6.7% of its rubber.<sup class="src">[5]</sup></div></div>
+      <div class="stat"><div class="v">55</div><div class="l">Estates: 25 at Kelani Valley, 16 at Talawakelle, 14 at Horana.<sup class="src">[5]</sup></div></div>
+      <div class="stat"><div class="v leaf">No. 1</div><div class="l">Hayleys calls itself Sri Lanka's largest listed corporate by revenue.<sup class="src">[6]</sup></div></div>
+    </div>
+    <div class="notice"><b>Why a conglomerate:</b> foreign firms usually enter through a local partner,<sup class="src">[7]</sup> and partnering with groups like John Keells, Hayleys or Aitken Spence is common.<sup class="src">[2]</sup> One pilot here can reach dozens of estates.</div>
+    <details class="notes"><summary>Speaker notes &middot; 1:50–2:20</summary><p>Our first client is Hayleys Plantations: three plantation companies and 55 estates across several climate zones. That is enough variety to prove the tool in one season. And because Hayleys is a large conglomerate, it can also be our local partner, which is the usual way into this market.</p></details>
+  </div>
 </section>
 
-<section class="reveal" id="sources">
-  <h2><span class="n">07</span>Sources &amp; AI disclosure</h2>
-  <div class="placeholder"><b>Sources</b><p>[1] Add the source and URL for each factual claim, statistic, or cultural tip. Prefer reliable and course-approved sources.</p><p>[2] Course materials: cite the relevant class / briefing / guest insights.</p></div>
-  <div class="notice" style="margin-top:1rem"><b>AI-use disclosure:</b> [Name the AI tools used, what they helped with, and what the team independently checked or changed.]</div>
+<!-- 6 · CULTURE AS STRATEGY -->
+<section class="slide reveal" id="s6">
+  <div class="inner">
+    <span class="when">2:20 · Culture is the strategy</span>
+    <p class="thesis">English works. <em>Trust decides.</em></p>
+    <p class="sub">Four tendencies we plan around. These are starting points we check with real people, not rules about a nation.</p>
+    <div class="flip-grid">
+      <button class="flip" aria-pressed="false"><div class="flip-inner"><div class="face front"><span class="lbl">Before the meeting</span><span class="big">Ask for an introduction</span><span class="hint">tap</span></div><div class="face back"><p>A mutual contact explains why the meeting is worth having.<sup class="src">[1]</sup> <b>Our move:</b> ask the Embassy of Sri Lanka in Israel and our mentor for a warm intro. No cold emails.</p></div></div></button>
+      <button class="flip" aria-pressed="false"><div class="flip-inner"><div class="face front"><span class="lbl">Hierarchy</span><span class="big">Titles and seniority matter</span><span class="hint">tap</span></div><div class="face back"><p>Power distance is high, and decisions tend to come from the top.<sup class="src">[2]</sup> <b>Our move:</b> greet the most senior person first, say "Mr." or "Sir", and match their rank with our CEO.</p></div></div></button>
+      <button class="flip" aria-pressed="false"><div class="flip-inner"><div class="face front"><span class="lbl">Communication</span><span class="big">"We will try" may mean no</span><span class="hint">tap</span></div><div class="face back"><p>People often avoid a direct no, and very direct questions can sound rude.<sup class="src">[1][2]</sup> <b>Our move:</b> ask soft, open questions. Agree next steps in writing after the meeting.</p></div></div></button>
+      <button class="flip" aria-pressed="false"><div class="flip-inner"><div class="face front"><span class="lbl">Time</span><span class="big">On time, but patient</span><span class="hint">tap</span></div><div class="face back"><p>Arrive on time, even if the meeting starts late. Raise deadlines early.<sup class="src">[1]</sup> Avoid Poya days and mid-April New Year.<sup class="src">[2]</sup> <b>Our move:</b> plan in seasons, not sprints.</p></div></div></button>
+    </div>
+    <div class="vs">
+      <div class="il"><h5>Israeli default</h5><p>"Let's get to the point. Is it a yes?"</p></div>
+      <div class="mid">VS</div>
+      <div class="there"><h5>What we will do in Colombo</h5><p>Tea first, small talk, listen. Leave a short brief they can forward internally. Follow up with patience.</p></div>
+    </div>
+    <details class="notes"><summary>Speaker notes &middot; 2:20–3:10</summary><p>Here the Israeli instinct works against us. The diplomat told us: get an introduction, dress to show respect, phrase questions with care, and expect a longer turnaround. So we arrive through a warm intro, greet the most senior person first, and treat "we will try" as a maybe to explore. We never push for a yes in the room.</p></details>
+  </div>
 </section>
+
+<!-- 7 · ROADMAP -->
+<section class="slide reveal" id="s7">
+  <div class="inner">
+    <span class="when">3:10 · The road to the meeting</span>
+    <p class="thesis">From warm intro to a <em>one-season pilot</em>.</p>
+    <div class="timeline">
+      <div class="tstep"><h4>Weeks 1–4 <span>the introduction</span></h4><p>The Embassy, our mentor and the Israel Export Institute help us find a contact at Hayleys Plantations.</p></div>
+      <div class="tstep"><h4>Weeks 5–8 <span>the pre-read</span></h4><p>We send a short, simple brief they can forward inside the organisation. This makes it easy to build consensus internally.</p></div>
+      <div class="tstep"><h4>Week 10 <span>the visit to Colombo</span></h4><p>We avoid Poya days and April. Ayubowan, both hands for cards, accept the tea. Our CEO meets their head of plantations.</p></div>
+      <div class="tstep"><h4>Season 1 <span>the pilot</span></h4><p>Two estates in two climate zones, priced in USD, with success measures agreed in writing.</p></div>
+    </div>
+    <details class="notes"><summary>Speaker notes &middot; 3:10–3:40</summary><p>Our roadmap is slow on purpose. First the introduction, then a short pre-read they can share inside the organisation, then the visit to Colombo, timed around Poya days. We ask for something small: a one-season pilot on two estates. Small enough to approve, big enough to prove the value.</p></details>
+  </div>
+</section>
+
+<!-- 8 · SCENARIO + CLOSE -->
+<section class="slide reveal" id="s8">
+  <div class="inner">
+    <span class="when">3:40 · Practice and close</span>
+    <div class="scenario">
+      <span class="label">Illustrative scenario</span>
+      <p class="sit">End of the first meeting. The head of plantations smiles and says: <b>"This is very interesting. We will try to look at a pilot."</b> What do we say?</p>
+      <div class="opts">
+        <button class="opt">"Great! Can we sign the pilot this week?"<span class="fb"><b>Tradeoff:</b> it shows energy, but it pushes for a yes in public and risks embarrassing them. Their "try" may become a quiet no.</span></button>
+        <button class="opt">"Thank you, sir. Who else in your team should we share the details with?"<span class="fb"><b>Tradeoff:</b> it is slower, but it respects the hierarchy, maps who decides, and gives them a way forward that saves face.</span></button>
+        <button class="opt">"Thank you. We will send a one-page summary and call next week."<span class="fb"><b>Tradeoff:</b> it is polite and builds momentum, but it may miss the people who really decide. It works best together with the second option.</span></button>
+      </div>
+      <div class="debrief"><b>Our pick:</b> the second option, then the third. Find the decision path, then follow up in writing, with patience.</div>
+    </div>
+    <p class="thesis" style="margin-top:2rem">Sip the tea. <em>Hear the maybe.</em> Prove it on two estates.</p>
+    <details class="notes"><summary>Speaker notes &middot; 3:40–4:10</summary><p>A last test. If they say "we will try", we do not ask for a signature. We ask who else should be involved, and we follow up in writing. Our message in one line: sip the tea, hear the maybe, and prove it on two estates. Thank you. Bohoma sthuthi.</p></details>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="reveal" id="sources" style="margin-top:4vh">
+  <h2>Sources &amp; AI use</h2>
+  <div class="sources">
+    <ol>
+      <li>[1] Raveen Ubeysekera, Embassy of Sri Lanka in Israel, "Doing Business in Sri Lanka", guest presentation, class 1, 20 Nov 2026 (course material): export figures, before/in/beyond the meeting.</li>
+      <li>[2] Teaching team, "Background Information - Sri Lanka" (course material, late 2026): Cyclone Ditwah damage, GDP per capita, ICT exports, credit ratings, cultural dimensions, calendar, conglomerate partners.</li>
+      <li>[3] Acclym, <a href="https://www.acclym.com/company/about-us-leadership/">About us &amp; leadership</a>: description, 6M hectares, 39 countries, named customers.</li>
+      <li>[4] Acclym, <a href="https://www.acclym.com/news/cropx-acquires-acclym/">CropX acquires Acclym</a> (Sept 2025): acquisition, former name Agritask, US$42M raised.</li>
+      <li>[5] Hayleys, <a href="https://www.hayleys.com/sectors/plantations/">Plantations sector</a>: the three plantation companies, share of national tea and rubber, number of estates.</li>
+      <li>[6] Hayleys, <a href="https://www.hayleys.com/">home page</a>: "Number One public-listed corporate by revenue".</li>
+      <li>[7] U.S. International Trade Administration, <a href="https://www.trade.gov/country-commercial-guides/sri-lanka-distribution-and-sales-channels">Sri Lanka: Distribution &amp; Sales Channels</a>: foreign firms usually use a local agent or distributor.</li>
+    </ol>
+    <p style="margin-top:.8rem">The candidate scores on slide 3, the tea use case and the roadmap are the team's own analysis. The scenario is illustrative. Cultural points are tendencies, which we will check with our mentor.</p>
+    <p style="margin-top:.8rem"><b>AI use:</b> Claude Code (Anthropic) read the course files, checked company facts on the web, proposed the company and drafted this page. The team reviews every claim. Details are in <a href="https://github.com/IlanaGutman/gmba-sri-lanka/blob/main/AI-USE.md">AI-USE.md</a>.</p>
+  </div>
+</section>
+
 </main>
-<div class="pitch-nav" aria-label="Presentation sections"><a href="#video">Video</a><a href="#company">Company</a><a href="#market">Market</a><a href="#culture">Culture</a><a href="#approach">Plan</a><a href="#team">Team</a></div>
-<footer>Team Sri Lanka · GMBA Culture and Business · Template for the 3–5 minute pitch</footer>
+
+<div class="deck-bar" aria-label="Slide controls">
+  <button id="prev" aria-label="Previous slide">&larr;</button>
+  <span class="count" id="count">1 / 8</span>
+  <button id="next" aria-label="Next slide">&rarr;</button>
+  <span class="clock" id="clock" title="Click to start or reset the talk timer" style="cursor:pointer">0:00</span>
+</div>
+<footer>Team Sri Lanka &middot; Culture and Business (25231) &middot; Reichman University GMBA &middot; design system from the course kit</footer>
 <script src="../assets/engine.js"></script>
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var cur=0,count=document.getElementById('count');
+  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides[cur].scrollIntoView({behavior:'smooth',block:'start'});}
+  document.getElementById('prev').onclick=function(){show(cur-1)};
+  document.getElementById('next').onclick=function(){show(cur+1)};
+  addEventListener('keydown',function(e){
+    if(e.target.closest&&e.target.closest('input,textarea'))return;
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();show(cur+1)}
+    if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();show(cur-1)}
+  });
+  // current slide = the last one whose top has passed the upper third of the screen
+  function sync(){
+    var line=innerHeight/3,i=0;
+    slides.forEach(function(s,k){if(s.getBoundingClientRect().top<=line)i=k;});
+    cur=i;count.textContent=(cur+1)+' / '+slides.length;
+  }
+  addEventListener('scroll',sync,{passive:true});addEventListener('resize',sync);sync();
+  // talk timer: click to start, click again to reset
+  var clock=document.getElementById('clock'),t0=null,tick=null;
+  clock.onclick=function(){
+    if(tick){clearInterval(tick);tick=null;clock.textContent='0:00';clock.style.color='';return;}
+    t0=Date.now();tick=setInterval(function(){var s=Math.floor((Date.now()-t0)/1000);clock.textContent=Math.floor(s/60)+':'+('0'+s%60).slice(-2);clock.style.color=s>300?'var(--bad)':s>240?'var(--warn)':'var(--good)';},500);
+  };
+})();
+</script>
 </body>
 </html>
