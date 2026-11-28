@@ -1,11 +1,117 @@
 /* Team Sri Lanka - additions on top of the course kit's style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
+
+/* ============================================================
+   "Ceylon" theme: Sri Lankan flag colours + a fine-jewellery feel.
+   Deep maroon night, temple gold, saffron, tea green, a sapphire
+   for Israel. Overrides the kit's navy palette without touching
+   style.css. html:root beats the per-page :root blocks.
+   ============================================================ */
+html:root{
+  /* the four colours of the Sri Lankan flag */
+  --flag-maroon:#8d153a; --flag-gold:#ffbe29; --flag-saffron:#eb7400; --flag-green:#00534e;
+  --bg:#2a0712; --panel:#3a0b1b; --panel2:#470f22; --ink:#fff6e6; --muted:#e6cfae;
+  --a1:#ffbe29;            /* flag gold */
+  --a2:#8d153a;            /* flag maroon */
+  --a3:#eb7400;            /* flag saffron */
+  --leaf:#2bb39a;          /* flag green, lifted so it reads on maroon */
+  --sapphire:#8fb4ff;      /* Ceylon sapphire: the Israeli side */
+  --good:#2bb39a; --warn:#ffbe29; --bad:#ff5f6b;
+  --line:rgba(255,190,41,.22); --line2:rgba(255,190,41,.45);
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+}
+
+/* background: the flag's maroon field, a soft light, a faint lattice of cut gems */
+body{background:
+  radial-gradient(1100px 600px at 80% -10%,rgba(176,30,74,.45),transparent 60%),
+  radial-gradient(900px 520px at -5% 105%,rgba(0,83,78,.55),transparent 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 5L43 24L24 43L5 24Z' fill='none' stroke='%23ffbe29' stroke-opacity='.07'/%3E%3C/svg%3E"),
+  var(--bg);
+  background-attachment:fixed}
+.progress+.blob{background:#b01e4a!important;opacity:.35}
+.blob+.blob{background:#00534e!important;opacity:.5!important}
+.progress{background:linear-gradient(90deg,var(--flag-green),var(--flag-saffron),var(--flag-gold));height:4px;z-index:101}
+
+/* the flag itself, quoted lightly: green + saffron stripes on the hoist side,
+   and a fine gold frame around the page like the flag's yellow border */
+body::before{content:"";position:fixed;top:0;bottom:0;left:0;width:14px;z-index:80;pointer-events:none;
+  background:linear-gradient(90deg,var(--flag-green) 0 50%,var(--flag-saffron) 50% 100%);
+  box-shadow:2px 0 0 var(--flag-gold)}
+body::after{content:"";position:fixed;inset:8px 8px 8px 22px;z-index:79;pointer-events:none;
+  border:1px solid rgba(255,190,41,.35);border-radius:4px}
+@media(max-width:640px){body::before{width:6px}body::after{display:none}}
+
+/* nav with a thin flag-colour stripe */
+nav{background:rgba(42,7,18,.88);border-bottom:1px solid var(--line);left:14px}
+@media(max-width:640px){nav{left:6px}}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:linear-gradient(90deg,transparent,var(--flag-gold) 20%,var(--flag-gold) 80%,transparent)}
+nav .here{color:var(--a1)}
+
+/* typography: serif display, like a jeweller's catalogue */
+h1,h2,.thesis,.front .big,.stat .v,.fact h4 .em{font-family:var(--serif)}
+h1,h2,.thesis,.stat .v,.matrix{font-variant-numeric:lining-nums}
+h1{font-weight:800;letter-spacing:-.01em}
+h2{font-weight:700}
+h2 .n{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;font-weight:700;letter-spacing:.05em}
+.kicker,.when{color:var(--a1)}
+.kicker::before,.when::before{content:"\25C6";color:var(--a3);margin-right:.6em;font-size:.85em}
+h1::after,main>section>h2::after{content:"";display:block;width:160px;height:12px;margin-top:.9rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='12' viewBox='0 0 160 12'%3E%3Cpath d='M0 6H64M96 6H160' stroke='%23ffbe29' stroke-opacity='.55'/%3E%3Cpath d='M80 0L87 6L80 12L73 6Z' fill='%23ffbe29'/%3E%3Ccircle cx='68' cy='6' r='1.6' fill='%23eb7400'/%3E%3Ccircle cx='92' cy='6' r='1.6' fill='%23eb7400'/%3E%3C/svg%3E") no-repeat}
+.thesis em,h1 .x{color:var(--a1);background:linear-gradient(100deg,#ffe29a 0%,#ffbe29 35%,#d99a12 60%,#ffe7a8 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+sup.src{color:var(--a3)}
+
+/* cards: gold hairline, warm gradient, a soft "gem" glow on hover */
+.fact,body .stat,.check,.scenario,.tabpane,.face,.stepRow,.vs,body .matrix{border-color:var(--line)!important}
+.fact,body .stat{background:linear-gradient(160deg,#43102a,#350a1a);box-shadow:inset 0 1px 0 rgba(255,190,41,.12)}
+.fact:hover,body .stat:hover{border-color:var(--line2)!important;box-shadow:0 0 0 1px rgba(255,190,41,.1),0 14px 34px -18px rgba(255,190,41,.5)}
+body .stat .v{color:var(--a1)} body .stat .v.leaf{color:var(--leaf)}
+/* each stat card wears one flag colour on its top edge */
+body .stat{border-top:3px solid var(--flag-gold)!important}
+body .stat:nth-child(4n+2){border-top-color:var(--flag-saffron)!important}
+body .stat:nth-child(4n+3){border-top-color:var(--leaf)!important}
+body .stat:nth-child(4n+4){border-top-color:#c2245a!important}
+.chip{border-color:var(--line2);color:var(--ink);background:rgba(255,190,41,.07)}
+.front{background:linear-gradient(160deg,#43102a,#350a1a)}
+.back{background:var(--panel2)}
+.front .lbl{color:var(--a3)}
+.opt{background:var(--panel2);border-color:var(--line)}
+.opt:hover:not(:disabled),.opt.picked{border-color:var(--a1)}
+.debrief{border-top-color:var(--line2)}
+.check label{border-bottom-color:var(--line)}
+.tab{background:var(--panel);border-color:var(--line)}
+.timeline{border-left-color:var(--line2)}
+.tstep::before{background:var(--a1);box-shadow:0 0 0 3px rgba(255,190,41,.2),0 0 16px var(--a1);transform:rotate(45deg);border-radius:2px}
+.tstep .il,.tstep .il b{color:var(--sapphire)}
+
+/* Israel = sapphire blue, Sri Lanka = gold */
+.vs .il{background:#24213f} .vs .il h5{color:var(--sapphire)}
+.vs .mid{background:#1f050d;color:var(--a1)}
+.vs .there{background:#4a1024}
+
+.notice{background:#3a1a0a;border-color:#6e4a12;border-left-color:var(--flag-saffron)}
+.notice b{color:var(--a1)}
+.sources a,main a{color:#ffd36b}
+.stepRow a,.notice a,.tstep a,.back a{color:#f6d68d}
+footer{border-top:1px solid var(--line);color:var(--muted)}
+
+/* pitch deck pieces (beat the page's own <style> with body prefix) */
+body .matrix{background:var(--panel)}
+body .matrix th{background:#22050f;color:var(--a1)}
+body .matrix th,body .matrix td{border-bottom-color:var(--line)}
+body .matrix tr.win td{background:rgba(255,190,41,.12)}
+body .notes{border-top-color:var(--line2)}
+body .notes summary{color:var(--a1)}
+body .notes p{color:#ead9bd}
+body .deck-bar{background:rgba(42,7,18,.95);border-color:var(--line2)}
+body .deck-bar button,body .hint-keys kbd{border-color:var(--line2)}
+body .deck-bar .clock{border-left-color:var(--line2)}
+body .label{background:var(--a3)}
 
 /* "To add" boxes: every yellow dashed box is work that is still open */
-.todo{position:relative;background:#16130a;border:2px dashed #6b5a17;border-radius:16px;padding:1.6rem 1.3rem 1.2rem;margin-top:1rem}
+.todo{position:relative;background:#33160a;border:2px dashed #7a5a1c;border-radius:16px;padding:1.6rem 1.3rem 1.2rem;margin-top:1rem}
 .twocol>.todo{margin-top:0}
 .todo .tag{position:absolute;top:-.7rem;left:1rem;background:var(--warn);color:#141003;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem}
 .todo b{display:block;color:var(--warn);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
-.todo p{color:#e8d9ac;font-size:.93rem}
+.todo p{color:#ecdcae;font-size:.93rem}
 .todo .eg{display:block;margin-top:.5rem;color:var(--muted);font-size:.82rem;font-style:italic}
 
 /* landing cards */
@@ -13,14 +119,15 @@ a.card{display:block;text-decoration:none;color:inherit;position:relative;transi
 a.card:hover{border-color:var(--a1);transform:translateY(-3px)}
 .status{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem;margin-bottom:.7rem}
 .status.open{background:var(--warn);color:#141003}
-.status.draft{background:#2a3b6b;color:#c9d6ff}
+.status.draft{background:#24305c;color:#cfdcff}
 .status.done{background:var(--good);color:#04130c}
-
-/* links inside dark panels */
-main a{color:#8fa4ff}
 a.card,a.card:visited{color:inherit}
-.stepRow a,.notice a,.tstep a,.back a{color:#aebfff}
 
 /* long words must not push a phone screen sideways */
 h1,h2,.big{overflow-wrap:anywhere}
 @media (prefers-reduced-motion:reduce){a.card{transition:none}}
+
+/* fill-in placeholders: [Company], [client]... gold dashed until the team fills them */
+.fill{color:var(--flag-gold);border-bottom:2px dashed var(--flag-saffron);padding:0 .1em;-webkit-text-fill-color:var(--flag-gold);font-style:normal}
+h1 .fill,.thesis .fill{border-bottom-width:3px}
+.stat .v .fill{font-size:.8em}
