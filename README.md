@@ -1,20 +1,42 @@
 # Team Sri Lanka - Culture and Business (Reichman GMBA, 25231)
 
-Our team site for the course. We take one Israeli company into the Sri Lankan market and plan the first face-to-face meeting with a client.
+Our team site for the course. We take one Israeli company into the Sri Lankan market and plan the first face-to-face meeting with a client. **The company is not chosen yet.**
 
-**Live site:** https://ilanagutman.github.io/gmba-sri-lanka/ (works after GitHub Pages is turned on, see the bottom of this file)
+**Live site:** https://ilanagutman.github.io/gmba-sri-lanka/ · **The pitch:** https://ilanagutman.github.io/gmba-sri-lanka/pitch/
 
 ## What is here
 
 | Page | File | Grade part |
 |---|---|---|
 | Team home | `index.html` | - |
+| The 4-minute pitch | `pitch/index.html` | Assignment 1 (30%), presented in class |
 | The company | `company/index.html` | Assignment 1 (30%) |
 | The culture | `culture/index.html` | Assignment 1 (30%) |
 | The client and the roadmap | `client/index.html` | Assignment 2 (40%) |
 | The meeting | `meeting/index.html` | Assignment 3 (30%) |
 
 Each page has yellow **"To add"** boxes. A box says who fills it and what to write. When the text is in, the box becomes normal page text.
+
+The pitch also has gold dashed fields such as **[Company]** or **[client]**. Each one is a single word or phrase to fill in once we choose the company.
+
+## The pitch
+
+Eight slides, about 4 minutes. Open `pitch/` and use the arrow keys or the buttons at the bottom right. Click the clock to start the talk timer: it turns orange at 4 minutes and red at 5. Every slide has **Speaker notes** with the script and timing.
+
+| Slide | What is on it | Status |
+|---|---|---|
+| 1 | Title | Fill **[Company]** |
+| 2 | Why Sri Lanka | Written, add the local need |
+| 3 | How we chose (scoring table) | To fill |
+| 4 | The company | To fill |
+| 5 | The first client | To fill |
+| 6 | Culture is the strategy | Written |
+| 7 | The road to the meeting | Written, fill the [fields] |
+| 8 | Scenario and closing line | Written |
+
+## The design
+
+A Sri Lankan flag theme with a fine-jewellery feel: the flag's maroon as the background, flag gold as the main colour, saffron and green for details, serif headings and gem-shaped dividers. In comparisons, Israel is shown in sapphire blue and Sri Lanka in gold. The whole theme lives in `assets/team.css`, so every page shares it.
 
 ## How to add your part (no code needed)
 
@@ -41,8 +63,11 @@ Each page has yellow **"To add"** boxes. A box says who fills it and what to wri
 
 - Plain HTML, CSS and JS. No build step, no framework. A page must open from disk.
 - `assets/style.css` and `assets/engine.js` come from the course kit. Do not change them. Put team additions in `assets/team.css`.
-- Building blocks: `.fact` cards in `.twocol`, `.flip` cards, `.timeline` with `.tstep`, `.scenario`, `.vs` strips, `.check` lists, `.notice`, `.todo`.
+- Building blocks: `.fact` cards in `.twocol`, `.flip` cards, `.timeline` with `.tstep`, `.scenario`, `.vs` strips, `.check` lists, `.notice`, `.todo`. The pitch adds `.slide` sections, `.stat` cards, a `.matrix` table, `.notes` speaker notes and `.fill` placeholders.
+- Theme colours are variables at the top of `assets/team.css` (`--flag-maroon`, `--flag-gold`, `--flag-saffron`, `--flag-green`). Change colours there, not in each page.
 - When you fill a `.todo` box, replace it with a normal block (`.fact` is the default). Do not leave the yellow box around finished text.
+- When you fill a `.fill` placeholder, replace the whole `<span class="fill">[...]</span>` with plain text.
+- After any change, update this README, the status chips on `index.html` and AI-USE.md in the same pull request.
 - When a page has no open boxes, change its status chip on `index.html` from `open` or `draft` to `done`.
 - Check every page at 1280px and at 390px wide before you open the pull request.
 

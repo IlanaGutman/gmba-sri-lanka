@@ -5,9 +5,9 @@ title: "Add: "
 labels: content
 ---
 
-**Which page?** (Company / Culture / Client and roadmap / Meeting)
+**Which page?** (Pitch / Company / Culture / Client and roadmap / Meeting)
 
-**Which "To add" box?** (copy the first words of the box)
+**Which "To add" box or [field]?** (copy the first words of the box, or the field name, e.g. [Company] on slide 1)
 
 **My text:**
 
