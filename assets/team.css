@@ -1,11 +1,100 @@
 /* Team Sri Lanka - additions on top of the course kit's style.css */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap');
+
+/* ============================================================
+   "Ceylon" theme: Sri Lankan flag colours + a fine-jewellery feel.
+   Deep maroon night, temple gold, saffron, tea green, a sapphire
+   for Israel. Overrides the kit's navy palette without touching
+   style.css. html:root beats the per-page :root blocks.
+   ============================================================ */
+html:root{
+  --bg:#170a0f; --panel:#26111a; --panel2:#311620; --ink:#fbf3e4; --muted:#d3bea2;
+  --a1:#e8b84a;            /* temple gold */
+  --a2:#8d153a;            /* flag maroon */
+  --a3:#f08a24;            /* saffron */
+  --leaf:#3fb58f;          /* tea green */
+  --sapphire:#7fa8ff;      /* Ceylon sapphire: the Israeli side */
+  --good:#3fb58f; --warn:#f0b43c; --bad:#e5484d;
+  --line:rgba(232,184,74,.16); --line2:rgba(232,184,74,.32);
+  --serif:"Playfair Display",Georgia,"Times New Roman",serif;
+}
+
+/* background: warm glow + a faint lattice of cut gems */
+body{background:
+  radial-gradient(1200px 600px at 85% -10%,rgba(141,21,58,.35),transparent 60%),
+  radial-gradient(900px 500px at -10% 110%,rgba(0,83,78,.35),transparent 60%),
+  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48'%3E%3Cpath d='M24 5L43 24L24 43L5 24Z' fill='none' stroke='%23e8b84a' stroke-opacity='.05'/%3E%3C/svg%3E"),
+  var(--bg);
+  background-attachment:fixed}
+.progress+.blob{background:#8d153a!important;opacity:.3}
+.blob+.blob{background:#00534e!important;opacity:.35!important}
+.progress{background:linear-gradient(90deg,#00534e,#f08a24,#8d153a,#e8b84a);height:4px}
+
+/* nav with a thin flag-colour stripe */
+nav{background:rgba(23,10,15,.82);border-bottom:1px solid var(--line)}
+nav::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:3px;background:linear-gradient(90deg,#00534e 0 18%,#f08a24 18% 36%,#8d153a 36% 82%,#e8b84a 82%)}
+nav .here{color:var(--a1)}
+
+/* typography: serif display, like a jeweller's catalogue */
+h1,h2,.thesis,.front .big,.stat .v,.fact h4 .em{font-family:var(--serif)}
+h1,h2,.thesis,.stat .v,.matrix{font-variant-numeric:lining-nums}
+h1{font-weight:800;letter-spacing:-.01em}
+h2{font-weight:700}
+h2 .n{font-family:"Segoe UI",system-ui,-apple-system,sans-serif;font-weight:700;letter-spacing:.05em}
+.kicker,.when{color:var(--a1)}
+.kicker::before,.when::before{content:"\25C6";color:var(--a3);margin-right:.6em;font-size:.85em}
+h1::after,main>section>h2::after{content:"";display:block;width:160px;height:12px;margin-top:.9rem;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='12' viewBox='0 0 160 12'%3E%3Cpath d='M0 6H64M96 6H160' stroke='%23e8b84a' stroke-opacity='.55'/%3E%3Cpath d='M80 0L87 6L80 12L73 6Z' fill='%23e8b84a'/%3E%3Ccircle cx='68' cy='6' r='1.6' fill='%23f08a24'/%3E%3Ccircle cx='92' cy='6' r='1.6' fill='%23f08a24'/%3E%3C/svg%3E") no-repeat}
+.thesis em,h1 .x{color:var(--a1)}
+sup.src{color:var(--a3)}
+
+/* cards: gold hairline, warm gradient, a soft "gem" glow on hover */
+.fact,body .stat,.check,.scenario,.tabpane,.face,.stepRow,.vs,body .matrix{border-color:var(--line)!important}
+.fact,body .stat{background:linear-gradient(160deg,#2c131d,#21101a);box-shadow:inset 0 1px 0 rgba(232,184,74,.08)}
+.fact:hover,body .stat:hover{border-color:var(--line2)!important;box-shadow:0 0 0 1px rgba(232,184,74,.08),0 12px 32px -18px rgba(232,184,74,.45)}
+body .stat .v{color:var(--a1)} body .stat .v.leaf{color:var(--leaf)}
+.chip{border-color:var(--line2);color:var(--ink);background:rgba(232,184,74,.05)}
+.front{background:linear-gradient(160deg,#2c131d,#21101a)}
+.back{background:var(--panel2)}
+.front .lbl{color:var(--a3)}
+.opt{background:var(--panel2);border-color:var(--line)}
+.opt:hover:not(:disabled),.opt.picked{border-color:var(--a1)}
+.debrief{border-top-color:var(--line2)}
+.check label{border-bottom-color:var(--line)}
+.tab{background:var(--panel);border-color:var(--line)}
+.timeline{border-left-color:var(--line2)}
+.tstep::before{background:var(--a1);box-shadow:0 0 0 3px rgba(232,184,74,.18),0 0 16px var(--a1);transform:rotate(45deg);border-radius:2px}
+.tstep .il,.tstep .il b{color:var(--sapphire)}
+
+/* Israel = sapphire blue, Sri Lanka = gold */
+.vs .il{background:#1a1730} .vs .il h5{color:var(--sapphire)}
+.vs .mid{background:#120810;color:var(--a1)}
+.vs .there{background:#2a1219}
+
+.notice{background:#22140a;border-color:#5a3d12;border-left-color:var(--a3)}
+.notice b{color:var(--a1)}
+.sources a,main a{color:#f3c96b}
+.stepRow a,.notice a,.tstep a,.back a{color:#f6d68d}
+footer{border-top:1px solid var(--line);color:var(--muted)}
+
+/* pitch deck pieces (beat the page's own <style> with body prefix) */
+body .matrix{background:var(--panel)}
+body .matrix th{background:#1d0c13;color:var(--a1)}
+body .matrix th,body .matrix td{border-bottom-color:var(--line)}
+body .matrix tr.win td{background:rgba(232,184,74,.1)}
+body .notes{border-top-color:var(--line2)}
+body .notes summary{color:var(--a1)}
+body .notes p{color:#ead9bd}
+body .deck-bar{background:rgba(30,12,19,.94);border-color:var(--line2)}
+body .deck-bar button,body .hint-keys kbd{border-color:var(--line2)}
+body .deck-bar .clock{border-left-color:var(--line2)}
+body .label{background:var(--a3)}
 
 /* "To add" boxes: every yellow dashed box is work that is still open */
-.todo{position:relative;background:#16130a;border:2px dashed #6b5a17;border-radius:16px;padding:1.6rem 1.3rem 1.2rem;margin-top:1rem}
+.todo{position:relative;background:#1e140a;border:2px dashed #7a5a1c;border-radius:16px;padding:1.6rem 1.3rem 1.2rem;margin-top:1rem}
 .twocol>.todo{margin-top:0}
 .todo .tag{position:absolute;top:-.7rem;left:1rem;background:var(--warn);color:#141003;font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem}
 .todo b{display:block;color:var(--warn);font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:.35rem}
-.todo p{color:#e8d9ac;font-size:.93rem}
+.todo p{color:#ecdcae;font-size:.93rem}
 .todo .eg{display:block;margin-top:.5rem;color:var(--muted);font-size:.82rem;font-style:italic}
 
 /* landing cards */
@@ -13,13 +102,9 @@ a.card{display:block;text-decoration:none;color:inherit;position:relative;transi
 a.card:hover{border-color:var(--a1);transform:translateY(-3px)}
 .status{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:.15rem .7rem;margin-bottom:.7rem}
 .status.open{background:var(--warn);color:#141003}
-.status.draft{background:#2a3b6b;color:#c9d6ff}
+.status.draft{background:#24305c;color:#cfdcff}
 .status.done{background:var(--good);color:#04130c}
-
-/* links inside dark panels */
-main a{color:#8fa4ff}
 a.card,a.card:visited{color:inherit}
-.stepRow a,.notice a,.tstep a,.back a{color:#aebfff}
 
 /* long words must not push a phone screen sideways */
 h1,h2,.big{overflow-wrap:anywhere}

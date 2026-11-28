@@ -234,7 +234,8 @@
 (function(){
   var slides=[].slice.call(document.querySelectorAll('.slide'));
   var cur=0,count=document.getElementById('count');
-  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));slides[cur].scrollIntoView({behavior:'smooth',block:'start'});}
+  var navUntil=0; // while a button/key scroll animates, keep the target slide as current
+  function show(i){cur=Math.max(0,Math.min(slides.length-1,i));navUntil=Date.now()+900;count.textContent=(cur+1)+' / '+slides.length;slides[cur].scrollIntoView({behavior:'smooth',block:'start'});}
   document.getElementById('prev').onclick=function(){show(cur-1)};
   document.getElementById('next').onclick=function(){show(cur+1)};
   addEventListener('keydown',function(e){
@@ -244,6 +245,7 @@
   });
   // current slide = the last one whose top has passed the upper third of the screen
   function sync(){
+    if(Date.now()<navUntil)return;
     var line=innerHeight/3,i=0;
     slides.forEach(function(s,k){if(s.getBoundingClientRect().top<=line)i=k;});
     cur=i;count.textContent=(cur+1)+' / '+slides.length;
